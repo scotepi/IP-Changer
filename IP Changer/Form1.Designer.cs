@@ -63,6 +63,7 @@
             this.listNic.Name = "listNic";
             this.listNic.Size = new System.Drawing.Size(177, 21);
             this.listNic.TabIndex = 1;
+            this.listNic.DropDownClosed += new System.EventHandler(this.PopulateForm);
             // 
             // label1
             // 
@@ -208,7 +209,6 @@
             this.Controls.Add(this.labelNic);
             this.Name = "mainWindow";
             this.Text = "IP Changer";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
