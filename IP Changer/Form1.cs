@@ -63,9 +63,7 @@ namespace IP_Changer
                     IPInterfaceProperties ip = adapter.GetIPProperties();
 
                     if (ip.GatewayAddresses.Count > 0)
-                    {
                         inputGateway.Text = ip.GatewayAddresses[0].Address.ToString();
-                    }
 
                     if (ip.DnsAddresses.Count > 0)
                         inputDNS1.Text = ip.DnsAddresses[0].ToString();
