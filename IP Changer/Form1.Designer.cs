@@ -176,9 +176,11 @@
             this.buttonApply.TabIndex = 17;
             this.buttonApply.Text = "Apply";
             this.buttonApply.UseVisualStyleBackColor = true;
+            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
             // mainWindow
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(395, 251);
             this.Controls.Add(this.checkboxDHCPIP);
             this.Controls.Add(this.buttonApply);
@@ -195,6 +197,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listNic);
             this.Controls.Add(this.labelNic);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mainWindow";
             this.Text = "IP Changer";
             this.ResumeLayout(false);
