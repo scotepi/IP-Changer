@@ -41,7 +41,6 @@
             this.inputDNS2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.checkboxDHCPIP = new System.Windows.Forms.CheckBox();
-            this.checkboxDHCPDNS = new System.Windows.Forms.CheckBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonApply = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -49,7 +48,7 @@
             // labelNic
             // 
             this.labelNic.AutoSize = true;
-            this.labelNic.Location = new System.Drawing.Point(12, 9);
+            this.labelNic.Location = new System.Drawing.Point(22, 9);
             this.labelNic.Name = "labelNic";
             this.labelNic.Size = new System.Drawing.Size(44, 13);
             this.labelNic.TabIndex = 0;
@@ -59,9 +58,9 @@
             // 
             this.listNic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.listNic.FormattingEnabled = true;
-            this.listNic.Location = new System.Drawing.Point(62, 6);
+            this.listNic.Location = new System.Drawing.Point(77, 6);
             this.listNic.Name = "listNic";
-            this.listNic.Size = new System.Drawing.Size(177, 21);
+            this.listNic.Size = new System.Drawing.Size(306, 21);
             this.listNic.TabIndex = 1;
             this.listNic.DropDownClosed += new System.EventHandler(this.PopulateForm);
             // 
@@ -79,14 +78,14 @@
             // 
             this.inputIP.Location = new System.Drawing.Point(77, 42);
             this.inputIP.Name = "inputIP";
-            this.inputIP.Size = new System.Drawing.Size(162, 20);
+            this.inputIP.Size = new System.Drawing.Size(306, 20);
             this.inputIP.TabIndex = 3;
             // 
             // inputNetmask
             // 
             this.inputNetmask.Location = new System.Drawing.Point(77, 68);
             this.inputNetmask.Name = "inputNetmask";
-            this.inputNetmask.Size = new System.Drawing.Size(162, 20);
+            this.inputNetmask.Size = new System.Drawing.Size(306, 20);
             this.inputNetmask.TabIndex = 5;
             // 
             // label2
@@ -103,7 +102,7 @@
             // 
             this.inputGateway.Location = new System.Drawing.Point(77, 94);
             this.inputGateway.Name = "inputGateway";
-            this.inputGateway.Size = new System.Drawing.Size(162, 20);
+            this.inputGateway.Size = new System.Drawing.Size(306, 20);
             this.inputGateway.TabIndex = 7;
             // 
             // label3
@@ -120,59 +119,49 @@
             // 
             this.inputDNS1.Location = new System.Drawing.Point(77, 137);
             this.inputDNS1.Name = "inputDNS1";
-            this.inputDNS1.Size = new System.Drawing.Size(162, 20);
+            this.inputDNS1.Size = new System.Drawing.Size(306, 20);
             this.inputDNS1.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 140);
+            this.label4.Location = new System.Drawing.Point(35, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "DNS";
+            this.label4.Text = "DNS1";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // inputDNS2
             // 
             this.inputDNS2.Location = new System.Drawing.Point(77, 163);
             this.inputDNS2.Name = "inputDNS2";
-            this.inputDNS2.Size = new System.Drawing.Size(162, 20);
+            this.inputDNS2.Size = new System.Drawing.Size(306, 20);
             this.inputDNS2.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 166);
+            this.label5.Location = new System.Drawing.Point(35, 166);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "DNS";
+            this.label5.Text = "DNS2";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // checkboxDHCPIP
             // 
             this.checkboxDHCPIP.AutoSize = true;
-            this.checkboxDHCPIP.Location = new System.Drawing.Point(28, 204);
+            this.checkboxDHCPIP.Location = new System.Drawing.Point(77, 189);
             this.checkboxDHCPIP.Name = "checkboxDHCPIP";
             this.checkboxDHCPIP.Size = new System.Drawing.Size(69, 17);
             this.checkboxDHCPIP.TabIndex = 14;
             this.checkboxDHCPIP.Text = "DHCP IP";
             this.checkboxDHCPIP.UseVisualStyleBackColor = true;
             // 
-            // checkboxDHCPDNS
-            // 
-            this.checkboxDHCPDNS.AutoSize = true;
-            this.checkboxDHCPDNS.Location = new System.Drawing.Point(134, 204);
-            this.checkboxDHCPDNS.Name = "checkboxDHCPDNS";
-            this.checkboxDHCPDNS.Size = new System.Drawing.Size(82, 17);
-            this.checkboxDHCPDNS.TabIndex = 15;
-            this.checkboxDHCPDNS.Text = "DHCP DNS";
-            this.checkboxDHCPDNS.UseVisualStyleBackColor = true;
-            // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(28, 227);
+            this.buttonReset.Location = new System.Drawing.Point(12, 212);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 16;
@@ -181,7 +170,7 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(141, 227);
+            this.buttonApply.Location = new System.Drawing.Point(308, 212);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(75, 23);
             this.buttonApply.TabIndex = 17;
@@ -190,11 +179,10 @@
             // 
             // mainWindow
             // 
-            this.ClientSize = new System.Drawing.Size(251, 264);
+            this.ClientSize = new System.Drawing.Size(395, 251);
+            this.Controls.Add(this.checkboxDHCPIP);
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.buttonReset);
-            this.Controls.Add(this.checkboxDHCPDNS);
-            this.Controls.Add(this.checkboxDHCPIP);
             this.Controls.Add(this.inputDNS2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.inputDNS1);
@@ -229,7 +217,6 @@
         private System.Windows.Forms.TextBox inputDNS2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkboxDHCPIP;
-        private System.Windows.Forms.CheckBox checkboxDHCPDNS;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonApply;
     }
