@@ -167,6 +167,7 @@
             this.buttonReset.TabIndex = 16;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.PopulateForm);
             // 
             // buttonApply
             // 
