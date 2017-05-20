@@ -122,8 +122,6 @@ namespace IP_Changer
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Apply Pressed", "Title");
-
             if (CheckInputs())
             {
                 if (ApplyChanges())
@@ -141,21 +139,100 @@ namespace IP_Changer
 
             } else
             {
-                MessageBox.Show("There was an error with your IP settings, can't apply changes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                // Invalid inputs
             }
         }
 
         public bool CheckInputs()
         {
 
+            List<string> errors = new List<string>();
 
-            return true;
+            if (!checkboxDHCPIP.Checked)
+            {
+                // Required inputs
+                if (System.String.IsNullOrWhiteSpace(inputIP.Text)) errors.Add("No IP Specified");
+                if (System.String.IsNullOrWhiteSpace(inputNetmask.Text)) errors.Add("No Netmask Specified");
+
+                // Verify data
+                if (!System.String.IsNullOrWhiteSpace(inputIP.Text) && !CheckIPAddressV4(inputIP.Text))
+                    errors.Add("Invalid IP Address");
+
+                if (!System.String.IsNullOrWhiteSpace(inputNetmask.Text) && !CheckIPAddressV4(inputNetmask.Text))
+                    errors.Add("Invalid Netmask");
+
+                if (!System.String.IsNullOrWhiteSpace(inputGateway.Text) && !CheckIPAddressV4(inputGateway.Text))
+                    errors.Add("Invalid Gateway");
+
+                if (!System.String.IsNullOrWhiteSpace(inputDNS1.Text) && !CheckIPAddressV4(inputDNS1.Text))
+                    errors.Add("Invalid DNS1");
+
+                if (!System.String.IsNullOrWhiteSpace(inputDNS2.Text) && !CheckIPAddressV4(inputDNS2.Text))
+                    errors.Add("Invalid DNS2");
+
+                if (errors.Count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("There was an error with your IP settings:\n - " + String.Join("\n - ", errors), "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return false;
+                }
+            } else
+            {
+                return true;
+            }
+            
         }
 
         public bool ApplyChanges()
         {
             return false;
 
+        }
+
+        static bool CheckIPAddressV4(string ipString)
+        {
+            // Nothing was passed
+            if (String.IsNullOrWhiteSpace(ipString))
+                return false;
+
+            // We have 4 octets
+            string[] splitValues = ipString.Split('.');
+            if (splitValues.Length != 4)
+                return false;
+
+            // Check each octet
+            foreach (String octetString in splitValues)
+            {
+
+                int octet;
+
+                // Convert it to a int16 or return false
+                try
+                {
+                    octet = Int16.Parse(octetString);
+                }
+                catch
+                {
+                    return false;
+                }
+
+
+                // Make sure the octet is between 0 and 255
+                if (0 <= octet && octet <= 255)
+                {
+                    // Within Range
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            // We made it to the end!
+            return true;
         }
     }
 }
