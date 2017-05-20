@@ -119,5 +119,43 @@ namespace IP_Changer
                 }
             }
         }
+
+        private void buttonApply_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Apply Pressed", "Title");
+
+            if (CheckInputs())
+            {
+                if (ApplyChanges())
+                {
+                    MessageBox.Show("IP Settings Applied!", "Congradulations!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                } else
+                {
+                    DialogResult result = MessageBox.Show("There was an unkown error applying the changes.", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Retry)
+                    {
+                        buttonApply_Click(sender, e);
+                    }
+                }
+
+            } else
+            {
+                MessageBox.Show("There was an error with your IP settings, can't apply changes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        public bool CheckInputs()
+        {
+
+
+            return true;
+        }
+
+        public bool ApplyChanges()
+        {
+            return false;
+
+        }
     }
 }
