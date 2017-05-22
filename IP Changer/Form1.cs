@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.Management;
 
 namespace IP_Changer
 {
@@ -33,7 +34,7 @@ namespace IP_Changer
                     new NICs()
                     {
                         Name = adapter.Name+" - "+adapter.OperationalStatus,
-                        Value = adapter.Id,
+                        Value = adapter.GetPhysicalAddress().ToString(),
                     }
                 );
             }
@@ -53,14 +54,17 @@ namespace IP_Changer
 
         private void PopulateForm(object sender, EventArgs e)
         {
-            string nicId = listNic.SelectedValue.ToString();
+            string macAddress = listNic.SelectedValue.ToString();
 
             NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
             foreach (NetworkInterface adapter in adapters)
             {
-                if (adapter.Id.ToString() == nicId)
+                if (adapter.GetPhysicalAddress().ToString() == macAddress)
                 {
                     IPInterfaceProperties ip = adapter.GetIPProperties();
+
+                    if (adapter.GetPhysicalAddress() != null)
+                        inputMACAddress.Text = adapter.GetPhysicalAddress().ToString();
 
                     if (ip.GatewayAddresses.Count > 0)
                         inputGateway.Text = ip.GatewayAddresses[0].Address.ToString();
@@ -143,7 +147,7 @@ namespace IP_Changer
             }
         }
 
-        public bool CheckInputs()
+        private bool CheckInputs()
         {
 
             List<string> errors = new List<string>();
@@ -155,19 +159,19 @@ namespace IP_Changer
                 if (System.String.IsNullOrWhiteSpace(inputNetmask.Text)) errors.Add("No Netmask Specified");
 
                 // Verify data
-                if (!System.String.IsNullOrWhiteSpace(inputIP.Text) && !CheckIPAddressV4(inputIP.Text))
+                if (!System.String.IsNullOrWhiteSpace(inputIP.Text) && !IPChanger.CheckIPAddressV4(inputIP.Text))
                     errors.Add("Invalid IP Address");
 
-                if (!System.String.IsNullOrWhiteSpace(inputNetmask.Text) && !CheckIPAddressV4(inputNetmask.Text))
+                if (!System.String.IsNullOrWhiteSpace(inputNetmask.Text) && !IPChanger.CheckIPAddressV4(inputNetmask.Text))
                     errors.Add("Invalid Netmask");
 
-                if (!System.String.IsNullOrWhiteSpace(inputGateway.Text) && !CheckIPAddressV4(inputGateway.Text))
+                if (!System.String.IsNullOrWhiteSpace(inputGateway.Text) && !IPChanger.CheckIPAddressV4(inputGateway.Text))
                     errors.Add("Invalid Gateway");
 
-                if (!System.String.IsNullOrWhiteSpace(inputDNS1.Text) && !CheckIPAddressV4(inputDNS1.Text))
+                if (!System.String.IsNullOrWhiteSpace(inputDNS1.Text) && !IPChanger.CheckIPAddressV4(inputDNS1.Text))
                     errors.Add("Invalid DNS1");
 
-                if (!System.String.IsNullOrWhiteSpace(inputDNS2.Text) && !CheckIPAddressV4(inputDNS2.Text))
+                if (!System.String.IsNullOrWhiteSpace(inputDNS2.Text) && !IPChanger.CheckIPAddressV4(inputDNS2.Text))
                     errors.Add("Invalid DNS2");
 
                 if (errors.Count == 0)
@@ -186,53 +190,17 @@ namespace IP_Changer
             
         }
 
-        public bool ApplyChanges()
+        private bool ApplyChanges()
         {
+
+
+            
+
+
             return false;
 
         }
 
-        static bool CheckIPAddressV4(string ipString)
-        {
-            // Nothing was passed
-            if (String.IsNullOrWhiteSpace(ipString))
-                return false;
-
-            // We have 4 octets
-            string[] splitValues = ipString.Split('.');
-            if (splitValues.Length != 4)
-                return false;
-
-            // Check each octet
-            foreach (String octetString in splitValues)
-            {
-
-                int octet;
-
-                // Convert it to a int16 or return false
-                try
-                {
-                    octet = Int16.Parse(octetString);
-                }
-                catch
-                {
-                    return false;
-                }
-
-
-                // Make sure the octet is between 0 and 255
-                if (0 <= octet && octet <= 255)
-                {
-                    // Within Range
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            // We made it to the end!
-            return true;
-        }
+        
     }
 }

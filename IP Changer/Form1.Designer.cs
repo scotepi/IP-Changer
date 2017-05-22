@@ -43,12 +43,14 @@
             this.checkboxDHCPIP = new System.Windows.Forms.CheckBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonApply = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.inputMACAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelNic
             // 
             this.labelNic.AutoSize = true;
-            this.labelNic.Location = new System.Drawing.Point(22, 9);
+            this.labelNic.Location = new System.Drawing.Point(35, 9);
             this.labelNic.Name = "labelNic";
             this.labelNic.Size = new System.Drawing.Size(44, 13);
             this.labelNic.TabIndex = 0;
@@ -58,7 +60,7 @@
             // 
             this.listNic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.listNic.FormattingEnabled = true;
-            this.listNic.Location = new System.Drawing.Point(77, 6);
+            this.listNic.Location = new System.Drawing.Point(90, 6);
             this.listNic.Name = "listNic";
             this.listNic.Size = new System.Drawing.Size(306, 21);
             this.listNic.TabIndex = 1;
@@ -67,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 45);
+            this.label1.Location = new System.Drawing.Point(26, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 2;
@@ -76,14 +78,14 @@
             // 
             // inputIP
             // 
-            this.inputIP.Location = new System.Drawing.Point(77, 42);
+            this.inputIP.Location = new System.Drawing.Point(90, 59);
             this.inputIP.Name = "inputIP";
             this.inputIP.Size = new System.Drawing.Size(306, 20);
             this.inputIP.TabIndex = 3;
             // 
             // inputNetmask
             // 
-            this.inputNetmask.Location = new System.Drawing.Point(77, 68);
+            this.inputNetmask.Location = new System.Drawing.Point(90, 85);
             this.inputNetmask.Name = "inputNetmask";
             this.inputNetmask.Size = new System.Drawing.Size(306, 20);
             this.inputNetmask.TabIndex = 5;
@@ -91,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 71);
+            this.label2.Location = new System.Drawing.Point(35, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 4;
@@ -100,7 +102,7 @@
             // 
             // inputGateway
             // 
-            this.inputGateway.Location = new System.Drawing.Point(77, 94);
+            this.inputGateway.Location = new System.Drawing.Point(90, 111);
             this.inputGateway.Name = "inputGateway";
             this.inputGateway.Size = new System.Drawing.Size(306, 20);
             this.inputGateway.TabIndex = 7;
@@ -108,7 +110,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 97);
+            this.label3.Location = new System.Drawing.Point(35, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 6;
@@ -117,7 +119,7 @@
             // 
             // inputDNS1
             // 
-            this.inputDNS1.Location = new System.Drawing.Point(77, 137);
+            this.inputDNS1.Location = new System.Drawing.Point(90, 154);
             this.inputDNS1.Name = "inputDNS1";
             this.inputDNS1.Size = new System.Drawing.Size(306, 20);
             this.inputDNS1.TabIndex = 9;
@@ -125,7 +127,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 140);
+            this.label4.Location = new System.Drawing.Point(48, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 8;
@@ -134,7 +136,7 @@
             // 
             // inputDNS2
             // 
-            this.inputDNS2.Location = new System.Drawing.Point(77, 163);
+            this.inputDNS2.Location = new System.Drawing.Point(90, 180);
             this.inputDNS2.Name = "inputDNS2";
             this.inputDNS2.Size = new System.Drawing.Size(306, 20);
             this.inputDNS2.TabIndex = 11;
@@ -142,7 +144,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 166);
+            this.label5.Location = new System.Drawing.Point(48, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 10;
@@ -152,7 +154,7 @@
             // checkboxDHCPIP
             // 
             this.checkboxDHCPIP.AutoSize = true;
-            this.checkboxDHCPIP.Location = new System.Drawing.Point(77, 189);
+            this.checkboxDHCPIP.Location = new System.Drawing.Point(90, 206);
             this.checkboxDHCPIP.Name = "checkboxDHCPIP";
             this.checkboxDHCPIP.Size = new System.Drawing.Size(69, 17);
             this.checkboxDHCPIP.TabIndex = 14;
@@ -161,7 +163,7 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(12, 212);
+            this.buttonReset.Location = new System.Drawing.Point(25, 229);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 16;
@@ -171,7 +173,7 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(308, 212);
+            this.buttonApply.Location = new System.Drawing.Point(321, 229);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(75, 23);
             this.buttonApply.TabIndex = 17;
@@ -179,10 +181,31 @@
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "MAC Address";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // inputMACAddress
+            // 
+            this.inputMACAddress.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.inputMACAddress.Location = new System.Drawing.Point(90, 33);
+            this.inputMACAddress.Name = "inputMACAddress";
+            this.inputMACAddress.ReadOnly = true;
+            this.inputMACAddress.Size = new System.Drawing.Size(306, 20);
+            this.inputMACAddress.TabIndex = 19;
+            // 
             // mainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(395, 251);
+            this.ClientSize = new System.Drawing.Size(416, 264);
+            this.Controls.Add(this.inputMACAddress);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.checkboxDHCPIP);
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.buttonReset);
@@ -225,6 +248,8 @@
         private System.Windows.Forms.CheckBox checkboxDHCPIP;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonApply;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox inputMACAddress;
     }
 }
 
