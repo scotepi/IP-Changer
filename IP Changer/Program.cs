@@ -22,7 +22,7 @@ namespace IP_Changer
 
     class IPChanger
     {
-        private void Main(string macAddress)
+        public IPChanger(string macAddress)
         {
             this.nic = GetManagementObject(macAddress);
         }
@@ -49,7 +49,7 @@ namespace IP_Changer
             return null;
         }
 
-        private bool SetIP(string ipAddress, string netmask)
+        public bool SetIP(string ipAddress, string netmask)
         {
 
             if (nic != null)
@@ -75,7 +75,7 @@ namespace IP_Changer
             return false;
         }
 
-        private bool SetGateway(string gatewayAddress)
+        public bool SetGateway(string gatewayAddress)
         {
 
             if (nic != null)
@@ -101,7 +101,7 @@ namespace IP_Changer
             return false;
         }
 
-        private bool SetDNS(string dns1, string dns2)
+        public bool SetDNS(string dns1, string dns2)
         {
 
             if (nic != null)
@@ -136,7 +136,7 @@ namespace IP_Changer
         }
 
 
-        private bool SetDHCP()
+        public bool SetDHCP()
         {
 
             if (nic != null)
