@@ -143,7 +143,13 @@ namespace IP_Changer
             {
                 try
                 {
+
+                    ManagementBaseObject newDNS =
+                        nic.GetMethodParameters("SetDNSServerSearchOrder");
+                    newDNS["DNSServerSearchOrder"] = null;
+
                     ManagementBaseObject setDHCP = nic.InvokeMethod("EnableDHCP", null, null);
+                    ManagementBaseObject setDNS = nic.InvokeMethod("SetDNSServerSearchOrder", newDNS, null);
 
                     return true;
                 }
