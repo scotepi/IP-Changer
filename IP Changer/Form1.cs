@@ -193,12 +193,26 @@ namespace IP_Changer
         private bool ApplyChanges()
         {
 
+            string macAddress = listNic.SelectedValue.ToString();
 
-            
+            IPChanger ip = new IPChanger(macAddress);
 
+            if (checkboxDHCPIP.Checked)
+            {
+                MessageBox.Show("Setting DHCP");
+                bool setDHCP = ip.SetDHCP();
 
-            return false;
+                return true;
+            } else
+            {
+                MessageBox.Show("Setting Static IP");
 
+                bool setIP = ip.SetIP(inputIP.Text, inputNetmask.Text);
+                bool setGateway = ip.SetGateway(inputGateway.Text);
+                bool setDNS = ip.SetDNS(inputDNS1.Text, inputDNS2.Text);
+
+                return (setIP && setGateway && setDNS);
+            }
         }
 
         
